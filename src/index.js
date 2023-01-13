@@ -17,7 +17,7 @@ function printElements(response, usd) {
   let currencySelect = document.getElementById('selectCurrency').value;
   if(response['conversion_rates'][currencySelect]){
     let convertedAmount = usd * response['conversion_rates'][currencySelect];
-    document.getElementById('showExchange').innerText = `${usd} USD is equal to ${convertedAmount} ${currencySelect}`;
+    document.getElementById('showExchange').innerText = `${usd} USD is equal to ${parseFloat(convertedAmount).toFixed(2)} ${currencySelect}`;
   } 
 }
 
