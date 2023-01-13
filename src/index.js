@@ -11,8 +11,12 @@ async function getExchange(usd){
 
 
 function printElements(response, usd) {
-  document.getElementById('showExchange').innerText = `${usd} to ${response["conversion_rates"].USD}`
-}
+  let currencySelect = document.getElementById('selectCurrency').value;
+  if(response['conversion_rates'][currencySelect]){
+    let convertedAmount = usd * response['conversion_rates'][currencySelect];
+    document.getElementById('showExchange').innerText = `${usd} USD is equal to ${convertedAmount} ${currencySelect}`
+    } 
+  }
 
 function printError(error, usd){
   document.getElementById('showExchange').innerText = `${usd} conversion failed. ${error.result}`
