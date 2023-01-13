@@ -17,17 +17,17 @@ function printElements(response, usd) {
   let currencySelect = document.getElementById('selectCurrency').value;
   if(response['conversion_rates'][currencySelect]){
     let convertedAmount = usd * response['conversion_rates'][currencySelect];
-    document.getElementById('showExchange').innerText = `${usd} USD is equal to ${convertedAmount} ${currencySelect}`
-    } 
-  }
+    document.getElementById('showExchange').innerText = `${usd} USD is equal to ${convertedAmount} ${currencySelect}`;
+  } 
+}
 
 function printError(error, usd){
-  document.getElementById('showExchange').innerText = `${usd} conversion failed. ${error}`
+  document.getElementById('showExchange').innerText = `${usd} conversion failed. ${error}`;
 }
 
 function handleFormSubmission(event){
   event.preventDefault();
-  const usd = document.getElementById('usdInput').value
+  const usd = document.getElementById('usdInput').value;
   getExchange(usd);
 
 }
