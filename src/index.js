@@ -1,4 +1,7 @@
 import ExchangeService from './exchangeCall';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/styles.css';
 
 async function getExchange(usd){
   const response = await ExchangeService.getExchange(usd);
@@ -19,7 +22,7 @@ function printElements(response, usd) {
   }
 
 function printError(error, usd){
-  document.getElementById('showExchange').innerText = `${usd} conversion failed. ${error.result}`
+  document.getElementById('showExchange').innerText = `${usd} conversion failed. ${error}`
 }
 
 function handleFormSubmission(event){
