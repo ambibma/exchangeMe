@@ -2,16 +2,16 @@ import ExchangeService from './exchangeCall';
 
 async function getExchange(usd){
   const response = await ExchangeService.getExchange(usd);
-  if (response.result = "success"){
-    printElements(response.conversion_rates, usd);
-  } else{
-    printError(response, usd)
+  if(response.result === "success") {
+    printElements(response, usd);
+  } else {
+    printError(response, usd);
   }
 }
 
 
 function printElements(response, usd) {
-  document.getElementById('showExchange').innerText = `${usd} to ${response.conversion_rates}`
+  document.getElementById('showExchange').innerText = `${usd} to ${response["conversion_rates"].USD}`
 }
 
 function printError(error, usd){
